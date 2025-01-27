@@ -1,3 +1,5 @@
+# reviewing python after 4 long years 
+
 #input() #returns string by default
 # cast input() using float() or int() constructor
 
