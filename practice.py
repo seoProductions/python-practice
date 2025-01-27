@@ -1,6 +1,3 @@
-# reviewing my python skills after a long 4 years
-
-
 #input() #returns string by default
 # cast input() using float() or int() constructor
 
@@ -76,16 +73,25 @@ else:
     j = 0
 
 #into this
+#THIS IS PYTHONS VERSION OF A TERNARY OPERATOR ?: !!!!!!!!!!!!!! very much english like!
 
 #j = 2  if l == 1 else j = 0
 
-def max(n1, n2):
-    return n1 if n1 > n2 else n2
+#def max(n1, n2):
+#    return n1 if n1 > n2 else n2
 
-print("The max value from l, k, j, a, and b is: ", max(l, max(k, max(j, max(a, b)))))
+#print("The max value from l, k, j, a, and b is: ", max(l, max(k, max(j, max(a, b)))))
 
 # return -1 or 1 only
+import time
 
+random.seed(time.time())
 print("random int is now ", -1 if random.randint(0,1) == 0 else 1)
 
 #switch statement equivilent for python
+month = 2
+
+match month:
+    case 1: print("January")
+    case 2: print("February")
+    case 3: print("March")
