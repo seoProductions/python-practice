@@ -97,3 +97,75 @@ match month:
     case 1: print("January")
     case 2: print("February")
     case 3: print("March")
+
+#math functions
+import math
+print(math.sqrt(2))
+print(math.atan(math.pi))
+
+#strings in python are simple. You can delcare them using either ' ' or " "
+
+str = "hi"
+str = "empty string below me"
+str = ""
+str = 'also delcare with single quotes!'
+str = ''
+
+#convention is to use single quotes for char, and double quotes for any other string
+convention = "string"
+convention = 'a'    #char
+
+# python uses unicode to represent characters
+
+char = "9"
+print(ord(char)) # will print out b
+
+char = 88
+print(chr(char)) # will print the uni-code value/ ASCII value
+
+#you can also format print statements by overriding the default end variable of 
+# end = "\n"
+
+print("hey", end="\t")
+print("hey", end="\t")
+print("hey", end="\t")
+print("hey", end="\t")
+print("hey", end="\t")
+print("hey", end="\t")
+print("just wanted to say hi!")
+
+#python has a way of checking if a certain substring exists within a string
+#these operators evaluate into a boolean expression, being True of False
+
+str = "the other ones are in the other"
+
+print("lol" not in str) # >>> True
+print("he" in str)      # >>> True
+print("the" not in str) # >>> False
+
+
+# instead of printing you can use f strings!
+
+
+print(f"f strings are more avaliable")
+print(f"and you can include variables like this one : {a} and this one : {j}")
+
+str = "poaijwdfpojaiwdf"
+print(f"starting from the third index, the string above is the following: {str[3:]}")
+
+#you can technically use format like this
+
+print(format("lol this is formated", "12"))
+
+
+# here is an example of nubmers arranged nice and neatly
+a = 12111.123427
+print(format(a, ">20.5f"))
+a = 432666.123234427
+print(format(a, ">20.5f"))
+a = 122222221121.123234234427
+print(format(a, ">20.5f"))
+a = 121111.1234234234234234122347
+print(format(a, ">20.5f"))
+a = 121123421.122343427
+print(format(a, ">20.5f"))
