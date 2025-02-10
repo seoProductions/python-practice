@@ -169,3 +169,22 @@ a = 121111.1234234234234234122347
 print(format(a, ">20.5f"))
 a = 121123421.122343427
 print(format(a, ">20.5f"))
+
+## implimenting python classes
+## python uses the "self" parameter instead of the "this" pointer. Interesting
+class TrafficLight:
+    def __init__(self):
+        self.state = "red"
+
+    def turnGreen(self):
+        self.state = "green"
+    def turnRed(self):
+        self.state = "red"
+    
+    def isGreen(self):
+        return True if self.state == "green" else False
+
+light1 = TrafficLight()
+print(f"is the light green? the answer is: {light1.isGreen()}")
+light1.turnGreen
+print(f"is the light green? the answer is: {light1.isGreen()}")
