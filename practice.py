@@ -170,21 +170,69 @@ print(format(a, ">20.5f"))
 a = 121123421.122343427
 print(format(a, ">20.5f"))
 
-## implimenting python classes
-## python uses the "self" parameter instead of the "this" pointer. Interesting
+
+## classes overview
+
 class TrafficLight:
     def __init__(self):
         self.state = "red"
+        self.syncedWith = None
 
     def turnGreen(self):
-        self.state = "green"
+        if self.state == "red":
+            self.state = "green"
+    def turnYellow(self):
+        if self.state == "green":
+            self.state = "yellow"
     def turnRed(self):
-        self.state = "red"
+        if self.state == "yellow":
+            self.state = "red"
     
+
     def isGreen(self):
         return True if self.state == "green" else False
+
+    def canCross(self):
+        return self.isGreen() or self.state == "yellow"
+
+    def syncWith(self, TrafficLight_in):
+        self.syncWith = TrafficLight_in
+        TrafficLight_in.syncWith = self
+        self.state = TrafficLight_in.state
+    
 
 light1 = TrafficLight()
 print(f"is the light green? the answer is: {light1.isGreen()}")
 light1.turnGreen
 print(f"is the light green? the answer is: {light1.isGreen()}")
+
+light1.turnYellow()
+print(f"can car1 cross now?   {light1.canCross()}")
+
+
+light2 = TrafficLight()
+light2.turnGreen()
+print(f"can car2 cross now?   {light2.canCross()}")
+
+light2.turnRed()
+print(f"can car2 cross now?   {light2.canCross()}")
+print("\n\n\n\n\n")
+
+syncedWith = TrafficLight()
+syncedWith.syncWith(light1)
+light2.syncWith(light1)
+
+
+print(f"can car1 cross now?   {light1.canCross()}")
+print(f"can car2 cross now?   {light2.canCross()}")
+print(f"can car3 cross now?   {syncedWith.canCross()}")
+
+
+## now changing one light's status to see if all others change and if synced up correctly
+
+light2.turnGreen()
+print("\n", end="")
+
+print(f"can car1 cross now?   {light1.canCross()}")
+print(f"can car2 cross now?   {light2.canCross()}")
+print(f"can car3 cross now?   {syncedWith.canCross()}")
