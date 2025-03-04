@@ -236,3 +236,184 @@ print("\n", end="")
 print(f"can car1 cross now?   {light1.canCross()}")
 print(f"can car2 cross now?   {light2.canCross()}")
 print(f"can car3 cross now?   {syncedWith.canCross()}")
+
+
+
+#############################
+#############################
+#############################
+
+# Now to move on to python functions
+# 90% of the concepts are the same, its simly the 
+# details that differ, lets take a look
+
+#define functions using "def" keyword
+
+def function():
+    print(f"inside the function")
+
+def f(a, b):
+    print(a, b)
+#and invoke
+function()
+f(9,8)
+
+
+# just about all variables in python are 
+# OBJECTS
+# Python passes these via reference!!!!
+
+n1 = 4
+n2 = 5
+
+f(n1, n2) #both n1,n2 and a,b both reference the same int object
+
+def printID(a):
+    return id(a)
+
+
+#BOTH WILL BE THE SAME!!!!!!!!!!!!!!!!
+print(f" id of n1 is {id(n1)}", end="\n\n")
+print(f" id of n1 passed by ref inside function is {printID(n1)}", end="\n\n")
+
+def intObjectAreImmutible(a):
+    # value of a is no longer the same, thus new int object will be created
+    # and it's ID will change bc its no longer a reference 
+    a += 1
+    return id(a)
+
+print(f" id of n1 is {id(n1)}", end="\n\n")
+print(f" id of n1 modified inside function is  {intObjectAreImmutible(n1)}", end="\n\n")
+
+
+###############################################
+
+#python has a "NONE" keyword for void functions
+
+def voidFunction2():
+    return
+
+def voidFunction1():
+    return None 
+
+print(f" void function will return this value: {voidFunction2()}")
+print(f" void function will return this value: {voidFunction1()}")
+
+######
+## Positional Arguments
+#####
+
+#just like in c++ and other languages
+
+def positional(a, b, c, d):
+    return
+positional(3,4,2,3)         ## MUST BE IN ORDER
+
+
+######
+## Keyword Arguments
+#####
+
+#python specific, pass arguments like a key=value pair!
+
+def keyword(a, b, c, d):
+    return
+keyword(c=2, b=2, d=2, a=4)
+keyword(c=6, b=2, d=9, a=4)    # YOU ARE ALLOWED TO DO THIS
+
+#####
+## Default arguments
+####
+
+#the same as c++ and others
+
+def defaultargs(a = 20, b = 2):
+    return
+defaultargs()
+defaultargs(3)
+defaultargs(23, 3)
+defaultargs(b = 3)
+defaultargs(b = 23, a=3)        # VERY FLEXIBLE, PYTHON IS VERY LAID BACK
+
+
+#################################################3
+#################################################3
+#################################################3
+#################################################3
+#################################################3
+
+#how to acess other python files????!?!?!?! use this syntax
+
+from Rectangle import Rectangle # import class only
+from Rectangle import *     #import all classes, modules, and functions
+r = Rectangle(3,2)
+print(f"area is {r.getArea()}")
+
+# alternative syntax
+
+import Rectangle
+#   file    .  class
+r1 = Rectangle.Rectangle(5,2)
+print(f"area is {r1.getArea()}")
+
+
+#####################
+#####################
+
+# Local and Global Scopes are just about the same, but
+# python doesent create a scope in CONTROLL BLOCKS
+
+# CONTROLL BLOCKS: IF() WHILE() CASE()......
+
+
+
+if 1 == 1:
+    y = 2
+
+print(y) # will print, because if() statement does not create a scope
+
+
+# ONLY FUNCTIONS, CLASSES, and MODULES CREATE A SCOPE
+
+def globalkeyword():
+    #will bind this variable to global y
+    global y
+    print(y)
+    # this really helps readability
+
+""" WILL NOT WORK, global only binds local variable
+
+
+def globalkeyword():
+    global zebra
+    zebra = 3
+    return
+
+
+print(zebra)
+
+"""
+
+# This has no effect, zebra is already global by default
+global zebra
+zebra = 3
+print(zebra)
+
+
+
+# Good practice to modularize code and use abstraction :)
+
+from Constants import *
+
+print(f"PI is {PI}")
+print(f"E  is {E}")
+print(f"PHI is {Phi}")
+
+# I perfer this:
+
+import Constants
+
+print(f"PI is {Constants.PI}")
+print(f"E  is {Constants.E}")
+print(f"PHI is {Constants.Phi}")
+
