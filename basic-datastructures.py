@@ -46,3 +46,43 @@ print(n)
 
 # OR YOU CAN DO THIS LOl
 n = len(list2) // len(list1)
+
+print(min(list2))
+
+
+## retrieve minimum of first 4 values in list
+
+
+minimum = list2[0]
+
+for i in range(1, 4):
+    minimum = min(minimum, list2[i])
+
+print(f" minimum value of first 4 elements in list2 is: {minimum}! ")
+
+
+# Swap first and last element
+
+last = list1.pop()
+first = list1[0]
+
+list1.append(first)
+list1.remove(first)
+
+list1.insert(0, last)
+
+print(list1[:])
+
+
+#assign true if list has less than 10 elements
+
+value = True if len(list1) < 10 else False
+#python looks very similar to english, cpp would write it as
+
+#value = (list1.length() < 10) ? True : False
+
+
+#lists only support two operators, concatenation + and relication *
+
+print(f"concatonating lists are easy { list1 + list2}")
+print(f"replacating lists via multiplication operator { list1 * 4 }\n")
