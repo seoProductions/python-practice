@@ -156,3 +156,24 @@ print("id :", id(ls23))
 
 
 scores = list(input())
+
+####
+#   Write a function that returns the sum of all the elements
+#  in a specified column in a matrix using the following header:
+####
+
+def sumColumn(m, columnIndex):
+    sum = 0
+    for row in m:
+        sum += float(row[columnIndex])
+
+    return sum
+
+matrix = []
+for i in range(0,3):
+    row = input(f"Enter a 3-by-4 matrix row {i}:")  \
+        .split()
+    matrix.append(row)
+
+for i in range(len(matrix[0])):
+    print(f"Sum of the elements at column {i} is {sumColumn(matrix, i)}")
