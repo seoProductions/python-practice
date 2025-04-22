@@ -3,13 +3,13 @@ import numpy as np
 
 
 #input as comma seperated values (CSV)
-given = [ int(x) for x in input("Vector to project: ").split(",") ]
+given = [ float(x) for x in input("Vector to project: ").split(",") ]
 vector_y = np.array(given)
 
-given = [ int(x) for x in input("1st basis for W: ").split(",") ]
+given = [ float(x) for x in input("1st basis for W: ").split(",") ]
 vector_u1 = np.array(given)
 
-given =  [ int(x) for x in input("2nd basis for W: ").split(",") ]
+given =  [ float(x) for x in input("2nd basis for W: ").split(",") ]
 vector_u2 = np.array(given)
 
 print("Given:")
