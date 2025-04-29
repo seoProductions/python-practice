@@ -1,0 +1,122 @@
+### inheritance example 
+class A:
+    def __init__(self, i = 0):
+        self.i = i
+
+
+class B(A):
+    def __init__(self, j = 0):
+        self.j = j
+
+def main():
+    b = B()
+    #print(b.i) Throws an error because class B does not instantiate A, this can be done manually via super()__init__()
+    print(b.j)
+
+main()
+
+
+## Correct example here:
+
+class A1:
+    def __init__(self, i = 1):
+        self.i = i
+
+class B1(A1):
+    def __init__(self, j = 2):
+        super().__init__()
+        self.j = j
+
+def main1():
+    b = B1()
+    print(b.i, b.j)
+
+main1()
+
+###
+
+class ParentClass:
+     def __init__(self):
+         self.__x = 1
+         self.y = 10
+ 
+     def print(self):
+         print(self.__x, self.y)
+
+class ChildClass(ParentClass):
+     def __init__(self):
+         super().__init__()
+         self.__x = 2
+         self.y = 20
+         
+c = ChildClass()
+c.print()
+
+object
+
+#####
+
+class A2:
+    def __init__(self):
+        self.i = 1
+
+    def m(self):
+        self.i = 10
+
+class B2(A2):
+    def m(self):
+        self.i += 1
+        return self.i
+
+def main2():
+    b = B2()
+    print(b.m())
+
+main2()
+
+
+######
+
+class A3:
+    def __str__(self):
+        return "A"
+
+class B3(A3):
+    def __init__(self):
+        super().__init__()
+
+class C3(B3):
+    def __init__(self):
+        super().__init__()
+
+def main3():
+    a = A3()
+    b = B3()
+    c = C3()
+    print(a, b, c)
+
+main3()
+
+# left over from previous example
+# dont mind this! :)
+
+import math
+
+class Triangle():
+    def __init__(self, side1 = 1.0, side2 = 1.0, side3 = 1.0):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def getSide1(self): return self.side1
+    def getSide2(self): return self.side2
+    def getSide3(self): return self.side3
+    
+    def getArea(self):
+        return math.sqrt() # i dont know the formula, it wasent given in the description
+    
+    def getPerimiter(self):
+        return self.side1 + self.side2 + self.side3
+    
+    def __str__(self):
+        return f"side1 ={self.side1} side2 ={self.side2} side3 ={self.side3}"
