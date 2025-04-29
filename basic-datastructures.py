@@ -1,3 +1,5 @@
+# Covering Sets, Tuples, and more
+# Mar-2024
 
 #create and empty list in python
 firstList = []
@@ -176,4 +178,30 @@ for i in range(0,3):
     matrix.append(row)
 
 for i in range(len(matrix[0])):
-    print(f"Sum of the elements at column {i} is {sumColumn(matrix, i)}")
+    print(f"Sum of the elements at column {i} is {sumColumn(matrix, i)}") 
+
+    
+## just an example
+
+class A:
+    def __init__(self):
+        self.x = 1
+        self.__y = 1
+ 
+    def getY(self):
+        return self.__y
+    
+    def __mabyePrivateMethod(self):
+        return self.__y + self.x
+
+a = A()
+
+len(list)
+print(a.x)
+
+
+# These two wont be interpreted because they are acessing private variables
+# and private methods from the class. Remember: __underscore 
+# indicated the private scope
+#print(a.__y)
+#print(a.__mabyePrivateMethod())

@@ -1,4 +1,8 @@
 # reviewing python after 4 long years 
+# below is a long long long list of commands, trial and error,
+# and descriptions of the python language. Lots of details 
+# I had to cover. Take a look if you want :)
+
 
 #input() #returns string by default
 # cast input() using float() or int() constructor
