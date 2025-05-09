@@ -133,11 +133,13 @@ print(type(it2))
 
 class TriangularNumIterator():
     def __init__(self):
-        self.current = 1
+        self.n1, self.n2 = 1, 3
 
-    def __new__(self):
-        n = self.current
-        self.current = n*(n + 1) / 2    # variables used are integers
+    # had a bug where i accedently typed __new__() lol, spent 10 min fixing this mess
+    def __next__(self):
+        n = self.n1 # number to be returned
+        # update variables
+        self.n1, self.n2 = self.n2, self.n2*(self.n2 + 1) // 2 
         return n
 
     def __iter__(self):
@@ -145,8 +147,59 @@ class TriangularNumIterator():
  
 print()
 triIt = TriangularNumIterator()
-for i in triIt:
-    print(i)
+for i in range(7):
+    print(str(triIt.__next__()), end=" ")
+
+# implimenting the same algorithm, but with a generator method
+
+def TriangularNumGenerator():
+    n1, n2 = 1, 3
+    while True:
+        n = n1
+        n1, n2 = n2, n2*(n2 + 1) // 2
+        yield n # this is soo muhc simpler!!!
+
+print()
+triIt = TriangularNumGenerator()
+for i in range(7):
+    print(str(triIt.__next__()), end=" ")
+
+
+### impliment increasing sum Iterator
+
+class increasingSumIterator():
+    def __init__(self):
+        self.n = 0
+    
+    def __next__(self):
+        temp = self.n
+        self.n += (temp + 1)
+        return temp
+
+    def __iter__(self):
+        return self #nice lol
+
+print()
+sumIT = increasingSumIterator()
+for i in range(23):
+    print(next(sumIT), end=" ")
+
+# implimentation for Generator
+
+def increasingSumGenerator():
+    n = 0
+
+    while True:
+        temp = n
+        n += temp + 1
+        yield temp
+    # in the case that function ends, StopIteration exeption is raised
+
+print()
+sumIT = increasingSumGenerator()
+for i in range(23):
+    print(next(sumIT), end=" ")
+
 
 
 # Overall, Iterators and Generators both prove usefull for
