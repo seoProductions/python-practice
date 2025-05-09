@@ -1,6 +1,6 @@
 <h1>Python Review</h1>
 <h5>This repo consists of me revewing my Python skills after having learnt it around~2020 and 2021.
-I automated a big deal of Linear Algebra Assigmnets along the way, I'll share some screenshots below</h5>
+I automated a good deal of Linear Algebra Assigmnets along the way, I'll share some screenshots below</h5>
 
 <h1>Screenshots</h1>
 <h3>Quick Note</h3>
